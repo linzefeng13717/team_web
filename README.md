@@ -1,4 +1,4 @@
-# conference-web
+# team_web
 运行项目首先需要安装`node.js`，推荐版本为`10.8.2`
 
 具体安装可参照教程：
@@ -8,7 +8,7 @@
 
 安装后
 
-1. 将本项目克隆到本地：`git clone git@github.com:linzefeng13717/conference-web.git`
+1. 将本项目克隆到本地：`git clone git@github.com:linzefeng13717/team_web.git`
 2. 运行命令：`npm install`
 3. 运行命令：`npm run dev`
 
