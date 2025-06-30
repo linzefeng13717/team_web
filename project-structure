@@ -1,0 +1,18 @@
+appt-conference/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Header.vue
+│   │   └── Footer.vue
+│   ├── views/
+│   │   ├── Home.vue
+│   │   ├── contribute/
+│   │   ├── organization/
+│   │   ├── Speaker.vue
+│   │   ├── Competition.vue
+│   │   ├── program/
+│   │   └── registration/
+│   ├── router/
+│   │   └── index.js
+│   ├── App.vue
+│   └── main.js 
