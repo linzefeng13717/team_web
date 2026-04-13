@@ -88,11 +88,12 @@ const imageExtensions = ['jpg', 'jpeg', 'png']
 
 const getMemberImage = (name) => {
   // 返回第一个扩展名的图片路径
-  return `/images/${name}.${imageExtensions[0]}`
+  return new URL(`/public/images/${name}.${imageExtensions[0]}`, import.meta.url).href
+  // return `/images/${name}.${imageExtensions[0]}`
 }
 
 // 默认头像
-const peopleImage = '/images/people_default.png'
+const peopleImage =  new URL('/images/people_default.png', import.meta.url).href
 
 // 图片加载错误处理，自动尝试下一个扩展名
 const handleImageError = (e) => {
@@ -243,7 +244,28 @@ const teamMembers = ref([
     role: "硕士",
     bio: "无",
     researchAreas: ["深度学习编译器"]
-  }
+  },
+  {
+    name: "王晨宏",
+    email: "无",
+    role: "硕士",
+    bio: "",
+    researchAreas: ["高效能智能计算架构"]
+  },
+  {
+    name: "陈婉纯",
+    email: "无",
+    role: "博士",
+    bio: "",
+    researchAreas: ["高效能智能计算架构"]
+  },
+  {
+    name: "谭洁",
+    email: "无",
+    role: "硕士",
+    bio: "",
+    researchAreas: ["高效能智能计算架构"]
+  },
 ])
 
 // 按身份分组

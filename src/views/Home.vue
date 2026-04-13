@@ -57,7 +57,7 @@
             <div class="info-item">
               <h3>联系方式</h3>
               <p>chencen@scut.edu.cn</p>
-              <p>实验室地址：XX大学XX楼</p>
+              <p>实验室地址：华南理工大学B2楼</p>
             </div>
             <div class="info-item">
               <h3>加入我们</h3>

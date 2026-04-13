@@ -14,7 +14,7 @@
         background-color="#004380"
         text-color="white"
         active-text-color="white">
-        <el-menu-item index="/">实验室首页</el-menu-item>
+        <el-menu-item index="/team_web">实验室首页</el-menu-item>
         <el-menu-item index="/leaders">导师队伍</el-menu-item>
         <el-menu-item index="/members">学术团队</el-menu-item>
         <el-menu-item index="/research">研究方向</el-menu-item>

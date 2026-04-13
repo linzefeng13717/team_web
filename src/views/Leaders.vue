@@ -51,16 +51,7 @@ import PageBase from '@/components/PageBase.vue'
 import { ref } from 'vue'
 
 const getLeaderImage = (name) => {
-  if (name === '陈岑') {
-    return '/images/CC.jpg'
-  }
-  // 其他老师的默认逻辑
-  const specialCases = {
-    'Stéphane Zuckerman': 'Stephane Zuckerman'
-  }
-  const imageName = specialCases[name] || name
-  const format = '.png'
-  return `/images/leaders/${imageName}${format}`
+  return new URL('/public/images/CC.jpg', import.meta.url).href
 }
 
 const leaders = ref([
