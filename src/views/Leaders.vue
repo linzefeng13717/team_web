@@ -38,6 +38,12 @@
                   <li v-for="(item, idx) in leader.awards" :key="idx">{{ item }}</li>
                 </ul>
               </div>
+              <div class="academic-service" v-if="leader.academicServices?.length">
+                <h3>学术服务</h3>
+                <ul>
+                  <li v-for="(item, idx) in leader.academicServices" :key="idx">{{ item }}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </el-card>
@@ -51,15 +57,19 @@ import PageBase from '@/components/PageBase.vue'
 import { ref } from 'vue'
 
 const getLeaderImage = (name) => {
-  return new URL('/public/images/CC.jpg', import.meta.url).href
+  const imageMap = {
+    陈岑: 'CC.jpg',
+    邹骁锋: '邹骁锋.jpg'
+  }
+  return new URL(`/public/images/${imageMap[name] || 'people_default.png'}`, import.meta.url).href
 }
 
 const leaders = ref([
   {
     role: "教授",
     name: "陈岑",
-    affiliation: "华南理工大学未来技术学院，教授，博导，IEEE Senior Member",
-    bio: `陈岑博士现担任华南理工大学未来技术学院，教授，博导，IEEE Senior Member。曾在新加坡科技研究院、资讯与通信研究所担任高级别研究员（Scientist III），研究所与新加坡国立大学、南洋理工大学兼职博士生导师。因其在人工智能软硬件体系结构设计方面的成就，获得了新加坡人工智能人才特殊津贴（截至2022年全新加坡118人）。博士论文获得湖南省优秀博士论文，湖南省计算机学会优秀博士毕业论文，ACM中国新星（长沙分会）。\n陈岑博士专注于面向大数据智能计算的高效能体系结构与算法方面的研究，已累计在体系结构和大数据权威学术期刊和会议上发表论文60余篇，专利授权15项。以第一作者或通讯作者发表论文共28篇。其中包括IEEE& ACM期刊或者CCF A类期刊论文17篇，CCF A类会议论文4篇，CCF B类会议论文2篇，影响因子大于10论文13篇。一作/通信期刊论文包括IEEE TC（CCF-A）、IEEE TPDS（CCF-A）、IEEE JSAC（CCF-A）、IEEE TSMC-S、IEEE TCYB、IEEE TNNLS等，一作会议包括HPCA（CCF-A）、MICRO（CCF-A）、DAC（CCF-A）、AAAI（CCF-A）等。担任Neurocomputing、JPDC客座编辑、HPCC-2022 Publication Chair、 UIC-2022领域主席、ICPADS-2023领域主席。\n体系结构是计算机的核心领域，也是我国面临的"卡脖子"技术之一，陈岑博士近两年一作论文相继发表在体系结构CCF-A类会议DAC-2021和HPCA-2022上，最新论文已被MICRO-2023接收。顶级体系结构会议对论文的学术价值要求严格，如HPCA-2022全球仅录用85篇论文，据权威官网CSRankings: Computer Science Rankings统计，从1970年至2022年，中国内地高校在HPCA上发表的论文的加权总数约33篇。\n陈岑博士有17年的计算机工程与科研工作经验，项目工程与管理经验丰富。近年来，联合主持中国-新加坡自然科学基金国际合作与交流重点项目、新加坡国家人工智能项目、新加坡国家重点项目、华为EDA软件合作项目等，主持或联合主持项目经费超过1800万元。`,
+    affiliation: "华南理工大学未来技术学院，教授，博导，IEEE Senior Member，国家青年人才（海外）",
+    bio: `陈岑博士现担任华南理工大学未来技术学院教授、博导，IEEE Senior Member。曾在新加坡科技研究院、资讯与通信研究所担任高级别研究员（Scientist III），研究所与新加坡国立大学、南洋理工大学兼职博士生导师。因其在人工智能软硬件体系结构设计方面的成就，入选国家青年人才（海外）、2024年全球Top 2%顶尖科学家榜单、广州市“才源广进计划”青年拔尖人才、新加坡AI3人工智能人才；获ACM China新星奖（Changsha Chapter）、湖南省优秀博士论文、湖南省计算机学会优秀博士论文，并获CCF-飞腾学术基金、中国人工智能协会-昇思（华为）学术基金等支持。\n主要从事高效能智能计算技术研究，在国内外著名期刊和会议上发表论文80余篇，以一作或通讯发表学术论文42篇，其中IEEE/ACM汇刊长文或CCF-A类期刊论文24篇，包括IEEE TCAD、TC、TPDS、JSAC等；CCF-A类会议论文8篇，包括MICRO、HPCA、DAC、NeurIPS等，Google Scholar引用2300余次，H-index 22。授权发明专利16项。\n体系结构是计算机的核心领域，也是我国面临的“卡脖子”技术之一。陈岑教授作为第一作者的研究成果已发表在体系结构CCF-A类会议DAC-2021、HPCA-2022、MICRO-2023。\n陈岑博士有18年的计算机工程与科研工作经验，项目工程与管理经验丰富。近年来主持国家自然科学基金优秀青年科学基金项目（海外）、国家自然科学基金面上项目、国家重点研发计划青年科学家项目子任务、新加坡政府RIE-2025重大专项项目课题等国内/国际纵向项目15项，以及华为、腾讯、钛动、百度等公司的产学研合作项目11项，总经费超过2500万元。`,
     researchFields: [
       "人工智能软硬件体系结构设计",
       "大数据智能计算",
@@ -81,7 +91,8 @@ const leaders = ref([
       'Cen Chen, Kenli Li, Wei Wei, Joey Tianyi Zhou, Zeng Zeng, "Hierarchical Graph Neural Networks for Few-Shot Learning", IEEE Transactions on Circuits and Systems for Video Technology, DOI: 10.1109/TCSVT.2021.3058098, 2021, (SCI 1 Journal, IF = 11.2, JCR Q1)'
     ],
     awards: [
-      "2024年 海外优青",
+      "2024年 国家自然科学基金优秀青年科学基金项目（海外）",
+      "2024年 全球Top 2%顶尖科学家榜单",
       "2024年 广州市广聚计划创新创业人才引进项目青年拔尖人才",
       "2023年 ACM RISING STAR AWARD 长沙分会",
       "2022年 IEEE 会议杰出组织奖",
@@ -93,7 +104,30 @@ const leaders = ref([
       "2017年 博士研究生国家奖学金",
       "2017年 湖南大学优秀博士奖学金",
       "2005年 华中科技大学优秀共产党员"
+    ],
+    academicServices: [
+      "IEEE Senior Member",
+      "2023年至今担任 Alexandria Engineering Journal 编委",
+      "2023年至今担任 IEEE Transactions on Computers（CCF A）编委",
+      "Neurocomputing、JPDC 客座编辑",
+      "ScalCom-2024、ScalCom-2025 程序委员会主席",
+      "IEEE ICPADS-2023 领域主席、HPCC-2022 论文出版主席、UIC-2022 领域主席、IEEE ITSC-2023 领域主席",
+      "广东省计算机学会移动与边缘计算专业委员会常务委员"
     ]
+  },
+  {
+    role: "副教授",
+    name: "邹骁锋",
+    affiliation: "华南理工大学未来技术学院，副教授",
+    bio: "邹骁锋博士主要从事计算机体系结构、高效能智能计算和图神经网络加速等方向研究。",
+    researchFields: [
+      "计算机体系结构",
+      "高效能智能计算",
+      "图神经网络加速"
+    ],
+    achievements: [],
+    awards: [],
+    academicServices: []
   }
 ])
 </script>
@@ -146,7 +180,7 @@ const leaders = ref([
             margin-bottom: 20px;
           }
 
-          .bio, .research, .achievements, .awards {
+          .bio, .research, .achievements, .awards, .academic-service {
             margin-top: 20px;
 
             h3 {

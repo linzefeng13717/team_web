@@ -183,13 +183,6 @@ const teamMembers = ref([
     researchAreas: ["面向人工智能的光电混合计算软硬件设计与优化"]
   },
   {
-    name: "邹骁锋",
-    email: "zouxiaofeng@scut.edu.cn",
-    role: "博士后",
-    bio: "",
-    researchAreas: ["体系结构"]
-  },
-  {
     name: "谢灿豪",
     email: "ft_xiecanhao@mail.scut.edu.cn",
     role: "博士",

@@ -1,10 +1,9 @@
 <template>
   <el-header class="header">
     <div class="header-content">
-      <!-- <div class="logo-container">
-        <img src="../assets/logo.png" alt="Lab Logo" class="logo">
-        <span class="conference-name">Lab</span>
-      </div> -->
+      <div class="logo-container">
+        <img :src="teamLogo" alt="团队 Logo" class="logo">
+      </div>
       
       <el-menu 
         mode="horizontal" 
@@ -26,6 +25,10 @@
   </el-header>
 </template>
 
+<script setup>
+const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
+</script>
+
 <style lang="scss" scoped>
 .header {
   position: fixed;
@@ -39,27 +42,23 @@
   .header-content {
     max-width: 1400px; // 限制最大宽度
     margin: 0 auto; // 居中
-    padding: 10 20px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: center; // 居中
+    justify-content: flex-start;
     height: 100%;
   }
 
   .logo-container {
     display: flex;
     align-items: center;
-    min-width: 200px; // 确保logo区域有足够空间
+    flex-shrink: 0;
+    margin-right: 28px;
     
     .logo {
-      height: 40px;
-      margin-right: 10px;
-    }
-
-    .conference-name {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: whitesmoke;
+      height: 46px;
+      width: auto;
+      display: block;
     }
   }
 
@@ -68,7 +67,7 @@
     flex: 1;
     background-color: #004380;
     justify-content: center; // 居中
-    margin-left: 0; // 去掉左边距
+    margin-left: 0;
 
     :deep(.el-menu-item),
     :deep(.el-sub-menu__title) {
@@ -122,8 +121,16 @@
 // 响应式设计
 @media screen and (max-width: 1200px) {
   .header {
+    .logo-container {
+      margin-right: 16px;
+
+      .logo {
+        height: 40px;
+      }
+    }
+
     .nav-menu {
-      margin-left: 20px;
+      margin-left: 0;
 
       :deep(.el-menu-item),
       :deep(.el-sub-menu__title) {

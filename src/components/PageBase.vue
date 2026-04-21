@@ -1,9 +1,9 @@
 <template>
   <div class="page-container">
-    <div class="hero-banner">
+    <!-- <div class="hero-banner">
       <img :src="bannerImage" :alt="title" class="banner-image">
       <h1 class="page-title">{{ title }}</h1>
-    </div>
+    </div> -->
     <div class="content">
       <div class="content-wrapper">
         <slot>
