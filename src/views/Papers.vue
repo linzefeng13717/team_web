@@ -38,6 +38,7 @@
       <div class="publication-list">
         <article v-for="paper in filteredPapers" :key="paper.title" class="publication-item">
           <div class="paper-thumb" :class="paper.visual">
+            <img v-if="paper.cover" :src="paper.cover" :alt="`${paper.title} cover`" />
             <span class="thumb-line"></span>
             <span class="thumb-node"></span>
             <span class="thumb-grid"></span>
@@ -125,6 +126,7 @@ const formatVenue = (paper) => {
 
 const papers = publicationSource.primary.map((paper) => ({
   title: paper['论文题名'],
+  cover: paper['封面图片'] || '',
   authors: formatAuthors(paper['作者']),
   venue: formatVenue(paper),
   year: Number(paper['年份']),
@@ -325,6 +327,15 @@ h1 {
   background: #fff;
   border: 1px solid #e6edf5;
   box-shadow: none;
+}
+
+.paper-thumb img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .paper-thumb::before,

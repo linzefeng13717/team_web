@@ -2,9 +2,12 @@
   <el-header class="header">
     <div class="header-content">
       <div class="logo-container">
+        <img :src="schoollogo" alt="学校 Logo" class="logo">
+      </div>
+      <div class="logo-container">
         <img :src="teamLogo" alt="团队 Logo" class="logo">
       </div>
-      
+
       <el-menu 
         mode="horizontal" 
         :router="true"
@@ -12,9 +15,10 @@
         :ellipsis="false"
         background-color="#004380"
         text-color="white"
-        active-text-color="white">
+        active-text-color="#004380">
         <el-menu-item index="/team_web">实验室首页</el-menu-item>
-        <el-menu-item index="/leaders">导师队伍</el-menu-item>
+        <el-menu-item index="/news">团队新闻</el-menu-item>
+        <!-- <el-menu-item index="/leaders">导师队伍</el-menu-item> -->
         <el-menu-item index="/members">学术团队</el-menu-item>
         <el-menu-item index="/research">研究方向</el-menu-item>
         <el-menu-item index="/papers">研究成果</el-menu-item>
@@ -26,7 +30,8 @@
 </template>
 
 <script setup>
-const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
+const schoollogo = new URL('/public/images/school-logo.png', import.meta.url).href
+const teamLogo = new URL('/public/images/hcclab-logo.png', import.meta.url).href
 </script>
 
 <style lang="scss" scoped>
@@ -35,14 +40,14 @@ const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: #004380;
+  background: #EAEAEA;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 0;
 
   .header-content {
     max-width: 1400px; // 限制最大宽度
     margin: 0 auto; // 居中
-    padding: 0 20px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -53,7 +58,7 @@ const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    margin-right: 28px;
+    margin-right: 10px;
     
     .logo {
       height: 46px;
@@ -65,7 +70,7 @@ const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
   .nav-menu {
     border: none;
     flex: 1;
-    background-color: #004380;
+    background-color: #EAEAEA;
     justify-content: center; // 居中
     margin-left: 0;
 
@@ -74,7 +79,7 @@ const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
       padding: 0 16px;
       font-size: 1.2rem;
       display: flex;
-      color: white;
+      color: black;
       align-items: center;
       line-height: 60px;
       height: 60px;
@@ -85,6 +90,7 @@ const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
 
       &.is-active {
         background-color: transparent !important;
+        color: #004380 !important;
       }
     }
 
@@ -110,7 +116,7 @@ const teamLogo = new URL('/public/images/team-logo.png', import.meta.url).href
           right: 8px;
           top: 50%;
           transform: translateY(-50%);
-          color: white; // 箭头颜色设为白色
+          color: black; // 箭头颜色设为白色
           font-size: 12px; // 调整箭头大小
         }
       }

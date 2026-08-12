@@ -10,8 +10,8 @@
 
 <style lang="scss" scoped>
 .footer {
-  background: #004380;
-  color: #fff;
+  background: #EAEAEA;
+  color: black;
   padding: 20px 0;
   text-align: center;
 
@@ -20,7 +20,7 @@
     opacity: 0.8;
     
     a {
-      color: #fff;
+      color: black;
       text-decoration: none;
       margin-left: 10px;
       
